@@ -30,7 +30,7 @@ def adivina_numero():
             else:
                 print("El número secreto es menor.")
 
-    # 3. Mensaje de derrota (Tu responsabilidad)
+    # 3. Mensaje de derrota 
     if not ganó:
         print(f"Lo siento, te has quedado sin intentos. El número secreto era {numero_secreto}.")    
 
