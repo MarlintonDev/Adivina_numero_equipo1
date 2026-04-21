@@ -2,7 +2,7 @@ import random
 
 def adivina_numero():
     print("¡Bienvenido a Adivina el Número!")
-    numero_secreto = random.randint(1, 100) # lo subimos a 100 para que se mas divertido con 5 intentos 
+    numero_secreto = random.randint(1, 100)  # lo subimos a 100 para que sea más divertido con 5 intentos 
     
     # 1. creamos variable para controlar los intentos
     intentos_maximos = 5
@@ -13,17 +13,22 @@ def adivina_numero():
 
     # 2. el blucle: "mientras los intentos realizados sean menores al máximo..."
     while intentos_realizados < intentos_maximos:
-        intento = int(input(f"Intentos {intentos_realizados + 1}: Adivina el número: "))
-        intentos_realizados += 1 # sumamos uno al contador de intentos 
+        try:
+            intento = int(input(f"Intentos {intentos_realizados + 1}: Adivina el número: "))
+        except ValueError:
+            print("Por favor, ingresa un número válido.")
+            continue
+        intentos_realizados += 1  # sumamos uno al contador de intentos 
         
         if intento == numero_secreto:
-            print(f"¡Felicidades!, adivinaste el número en {intentos_realizados} intentos.")
-            ganó= True
-            break #salimos del blucle porque ya gano
+            print(f"¡Felicidades! Adivinaste el número en {intentos_realizados} intentos.")
+            ganó = True
+            break  # salimos del bucle porque ya ganó
         else:
-            #pista (esto lo hará el Aprendiz 4, 
-            # pero por ahora un mensaje simple)
-            print("No es ese número.")
+            if intento < numero_secreto:
+                print("El número secreto es mayor.")
+            else:
+                print("El número secreto es menor.")
 
     # 3. Mensaje de derrota (Tu responsabilidad)
     if not ganó:
