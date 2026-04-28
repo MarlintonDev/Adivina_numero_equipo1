@@ -1,6 +1,7 @@
 import random
 
 def adivina_numero():
+
     print("¡Bienvenido a Adivina el Número!")
     numero_secreto = random.randint(1, 100)  # lo subimos a 100 para que sea más divertido con 5 intentos 
     while True:
@@ -42,10 +43,17 @@ def adivina_numero():
             else:
                 print("El número secreto es menor.")
 
-    # 3. Mensaje de derrota 
-    if not ganó:
-        print(f"Lo siento, te has quedado sin intentos. El número secreto era {numero_secreto}.")    
-        main
+     
+   # Mensaje final de victoria o derrota
+        if not ganado:
+            print(f"¡Derrota! Te has quedado sin intentos. El número secreto era {numero_secreto}.")
+        
+        # Opción de reiniciar el juego
+        reiniciar = input("\n¿Quieres jugar de nuevo? (s/n): ").lower()
+        if reiniciar != 's':
+            print("¡Gracias por jugar! Hasta luego.")
+            break
+ main
 
 if __name__ == "__main__":
     adivina_numero()
